@@ -219,8 +219,8 @@ void game() {
 
 	Snake snake(40, 50);
 	int mapCnt = 0;
-	int buffCnt = 0;
-	int nerfCnt = 0;
+	int mangocnt = 0;
+	int rockcnt = 0;
 
 	while(!snake.getEnd()){ //exit가 true가 될때까지 반복문
 	WINDOW *win1 = newwin(40, 50, 0, 0);
@@ -250,26 +250,26 @@ void game() {
 			mapCnt = 1;
 		}
 
-		if (buffCnt == 0) {
+		if (mangocnt == 0) {
 			makeRock(snake.getLevel()-1,win1);
 		}
-		buffCnt+= 1;
+		mangocnt+= 1;
 
-		if (buffCnt == 70) {
+		if (mangocnt == 70) {
 			removeMango(snake.getLevel()-1,win1);
 			makeRock(snake.getLevel()-1,win1);
-			buffCnt = 1;
+			mangocnt = 1;
 		}
 
-		if (nerfCnt == 0) {
+		if (rockcnt == 0) {
 			makeMango(snake.getLevel()-1,win1);
 		}
-		nerfCnt+= 1;
+		rockcnt+= 1;
 
-		if (nerfCnt == 35) {
+		if (rockcnt == 35) {
 			removeRock(snake.getLevel()-1,win1);
 			makeMango(snake.getLevel()-1,win1);
-			nerfCnt = 1;
+			rockcnt = 1;
 		}
 
 		int input = wgetch(win1);
